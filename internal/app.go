@@ -7,9 +7,9 @@ import (
 
 // Run runs the application.
 func Run() error {
-	executor, err := cli.NewExecutor()
+	cliExecutor, err := cli.NewExecutor()
 	if err != nil {
 		return err
 	}
-	return executor.Run()
+	return cliExecutor.Run()
 }

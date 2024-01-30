@@ -41,3 +41,12 @@ postgres-start:
 
 postgres-stop:
 	@docker-compose -f ./docker-compose.yaml down
+
+
+# Mock generation
+$(GOBIN)/mockery:
+	@go install github.com/vektra/mockery/v2@v2.19.0
+
+# Generate mocks e.g. make mocks SVC=hierarchy
+mocks: | $(GOBIN)/mockery
+	go generate --tags=mocks ./internal/mocks
